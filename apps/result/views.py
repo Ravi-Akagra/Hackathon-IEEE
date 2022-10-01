@@ -20,7 +20,7 @@ def create_result(request):
             form = CreateResults(request.POST)
             if form.is_valid():
                 subjects = form.cleaned_data["subjects"]
-                # session = form.cleaned_data["session"]
+                session = form.cleaned_data["session"]
                 term = form.cleaned_data["term"]
                 students = request.POST["students"]
                 results = []
@@ -29,7 +29,7 @@ def create_result(request):
                     if stu.current_class:
                         for subject in subjects:
                             check = Result.objects.filter(
-                                # session=session,
+                                session=session,
                                 term=term,
                                 current_class=stu.current_class,
                                 subject=subject,
@@ -38,7 +38,7 @@ def create_result(request):
                             if not check:
                                 results.append(
                                     Result(
-                                        # session=session,
+                                        session=session,
                                         term=term,
                                         current_class=stu.current_class,
                                         subject=subject,
@@ -54,7 +54,7 @@ def create_result(request):
         if id_list:
             form = CreateResults(
                 initial={
-                    # "session": request.current_session,
+                    "session": request.current_session,
                     "term": request.current_term,
                 }
             )
@@ -79,7 +79,7 @@ def edit_results(request):
             return redirect("edit-results")
     else:
         results = Result.objects.filter(
-            # session=request.current_session, term=request.current_term
+            session=request.current_session, term=request.current_term
         )
         form = EditResults(queryset=results)
     return render(request, "result/edit_results.html", {"formset": form})
@@ -88,7 +88,7 @@ def edit_results(request):
 class ResultListView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         results = Result.objects.filter(
-            # session=request.current_session, term=request.current_term
+            session=request.current_session, term=request.current_term
         )
         bulk = {}
 

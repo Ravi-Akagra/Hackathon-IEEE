@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>{{ company_name | default:"Backbenchers" }}</title>
+  <title>{{ school_name | default:"MySchool" }}</title>
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet"
@@ -42,7 +42,7 @@
             <form class="login100-form validate-form" method="post" action="{% url 'login' %}">
                 {% csrf_token %}
                 <span class="login100-form-title">
-                   Backbenchers
+                   {{ school_name }}
                                 </span>
                 <span class="error-msg"> 
                     {% if form.errors %}
@@ -86,10 +86,10 @@
 
                 <div class="text-center p-t-12">
                     <span class="txt1">
-                        New User?
+                        Forgot
                     </span>
-                    <a class="txt2" href="{% url 'sign_up' %}">
-                        Sign Up
+                    <a class="txt2" href="#">
+                        Username / Password?
                     </a>
                 </div>
 

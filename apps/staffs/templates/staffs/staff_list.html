@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Users{% endblock title %}
+{% block title %}staffs{% endblock title %}
 
 {% block breadcrumb %}
 <a class="btn btn-primary" href="{% url 'staff-create' %}"><i
-    class="fas fa-plus"></i> New Users</a>
+    class="fas fa-plus"></i> New staff</a>
 {% endblock breadcrumb %}
 
 {% block content %}
@@ -12,10 +12,10 @@
     <thead class="thead-light">
       <tr>
         <th>S/N</th>
-        <th>Usernames</th>
-        <th>E-mail</th>
-        <th>No. of Entries</th>
-        <th>Disability</th>
+        <th>Fullname</th>
+        <th>Gender</th>
+        <th>Mobile Phone Number</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
