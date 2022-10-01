@@ -62,7 +62,7 @@ class SessionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = AcademicSession
     form_class = AcademicSessionForm
     template_name = "corecode/mgt_form.html"
-    # success_url = reverse_lazy("sessions")
+    success_url = reverse_lazy("sessions")
     success_message = "New session successfully added"
 
     def get_context_data(self, **kwargs):
@@ -74,7 +74,7 @@ class SessionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 class SessionUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = AcademicSession
     form_class = AcademicSessionForm
-    # success_url = reverse_lazy("sessions")
+    success_url = reverse_lazy("sessions")
     success_message = "Session successfully updated."
     template_name = "corecode/mgt_form.html"
 
@@ -94,7 +94,7 @@ class SessionUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
 class SessionDeleteView(LoginRequiredMixin, DeleteView):
     model = AcademicSession
-    # success_url = reverse_lazy("sessions")
+    success_url = reverse_lazy("sessions")
     template_name = "corecode/core_confirm_delete.html"
     success_message = "The session {} has been deleted with all its attached content"
 
@@ -102,7 +102,7 @@ class SessionDeleteView(LoginRequiredMixin, DeleteView):
         obj = self.get_object()
         if obj.current == True:
             messages.warning(request, "Cannot delete session as it is set to current")
-            # return redirect("sessions")
+            return redirect("sessions")
         messages.success(self.request, self.success_message.format(obj.name))
         return super(SessionDeleteView, self).delete(request, *args, **kwargs)
 

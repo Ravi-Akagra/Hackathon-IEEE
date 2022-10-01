@@ -14,7 +14,7 @@ from .utils import score_grade
 # Create your models here.
 class Result(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    # session = models.ForeignKey(AcademicSession, on_delete=models.CASCADE)
+    session = models.ForeignKey(AcademicSession, on_delete=models.CASCADE)
     term = models.ForeignKey(AcademicTerm, on_delete=models.CASCADE)
     current_class = models.ForeignKey(StudentClass, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)

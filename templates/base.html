@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>{{ company_name | default:"Backbenchers" }}</title>
+  <title>{{ school_name | default:"MySchool" }}</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
@@ -25,7 +25,6 @@
 </head>
 
 <body
-
   class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
     <!-- Navbar -->
@@ -58,7 +57,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <a href="#" class="dropdown-item">
-              <i class="fas fa-user mr-2"></i> {{ user.username }}
+              <i class="fas fa-user mr-2"></i> Profile
             </a>
             <div class="dropdown-divider"></div>
             <a href="{% url 'logout' %}" class="dropdown-item">
@@ -87,14 +86,13 @@
           <ul class="nav nav-pills nav-sidebar flex-column"
             data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="{% url 'student-list' %}" class="nav-link">
+              <a href="{% url 'create-result' %}" class="nav-link">
                 <i class="nav-icon fas fa-graduation-cap"></i>
                 <p>
-                  Children
+                  Child Data
                 </p>
               </a>
             </li>
-              {% if user.is_superuser %}
             <li class="nav-item">
               <a href="{% url 'staff-list' %}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
@@ -104,13 +102,21 @@
               </a>
             </li>
 
-            
-            <li class="nav-header">Results</li>
-            <!-- <li class="nav-item">
-              <a href="{% url 'create-result' %}" class="nav-link">
+            <!-- <li class="nav-header">Finance</li>
+            <li class="nav-item">
+              <a href="{% url 'invoice-list' %}" class="nav-link">
                 <i class="nav-icon fas fa-money-bill-alt"></i>
                 <p>
-                  Create Results
+                  Invoices
+                </p>
+              </a>
+            </li> -->
+            <!-- <li class="nav-header">Results</li>
+            <li class="nav-item">
+              <a href="{% url 'create-result' %}" class="nav-link">
+                <i class="nav-icon fas fa-graduation-cap"></i>
+                <p>
+                  Child Data
                 </p>
               </a>
             </li> -->
@@ -122,26 +128,34 @@
                 </p>
               </a>
             </li> -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="{% url 'view-results' %}" class="nav-link">
-                <i class="nav-icon fas fa-money-bill-alt"></i>
+                <i class="nav-icon fas fa-users"></i>
                 <p>
-                  View Results
+                  Child Data
                 </p>
               </a>
-            </li>
-{% endif %}
-            <!-- <li class="nav-header">Others</li> -->
+            </li> -->
+
+            <li class="nav-header">Others</li>
             <li class="nav-item has-treeview">
-              <!-- <a href="#" class="nav-link">
+              <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
                   Management
                   <i class="fas fa-angle-left right"></i>
                 </p>
-              </a> -->
+              </a>
               <ul class="nav nav-treeview">
-                <!-- <li class="nav-item">
+                <li class="nav-item">
+                  <a href="{% url 'sessions' %}" class="nav-link">
+                    <i class="nav-icon fas fa-bars"></i>
+                    <p>
+                      Sessions
+                    </p>
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a href="{% url 'terms' %}" class="nav-link">
                     <i class="nav-icon fas fa-bars"></i>
                     <p>
@@ -149,7 +163,7 @@
                       <i class="right"></i>
                     </p>
                   </a>
-                </li> -->
+                </li>
                 <li class="nav-item">
                   <a href="{% url 'subjects' %}" class="nav-link">
                     <i class="nav-icon fas fa-bars"></i>
@@ -240,6 +254,7 @@
       <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
+
 
   </div>
   <!-- ./wrapper -->
