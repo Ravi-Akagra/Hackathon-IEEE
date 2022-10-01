@@ -25,6 +25,7 @@
 </head>
 
 <body
+
   class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
   <div class="wrapper">
     <!-- Navbar -->
@@ -57,7 +58,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <a href="#" class="dropdown-item">
-              <i class="fas fa-user mr-2"></i> Profile
+              <i class="fas fa-user mr-2"></i> {{ user.username }}
             </a>
             <div class="dropdown-divider"></div>
             <a href="{% url 'logout' %}" class="dropdown-item">
@@ -93,6 +94,7 @@
                 </p>
               </a>
             </li>
+              {% if user.is_superuser %}
             <li class="nav-item">
               <a href="{% url 'staff-list' %}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
@@ -135,53 +137,54 @@
                   Child Data
                 </p>
               </a>
+              {% endif %}
             </li> -->
-
-            <li class="nav-header">Others</li>
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
-                <p>
-                  Management
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="{% url 'sessions' %}" class="nav-link">
-                    <i class="nav-icon fas fa-bars"></i>
-                    <p>
-                      Sessions
-                    </p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{% url 'terms' %}" class="nav-link">
-                    <i class="nav-icon fas fa-bars"></i>
-                    <p>
-                      Terms
-                      <i class="right"></i>
-                    </p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{% url 'subjects' %}" class="nav-link">
-                    <i class="nav-icon fas fa-bars"></i>
-                    <p>
-                      Subjects
-                    </p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{% url 'classes' %}" class="nav-link">
-                    <i class="nav-icon fas fa-bars"></i>
-                    <p>
-                      Classes
-                    </p>
-                  </a>
-                </li>
-              </ul>
-            </li>
+{##}
+{#            <li class="nav-header">Others</li>#}
+{#            <li class="nav-item has-treeview">#}
+{#              <a href="#" class="nav-link">#}
+{#                <i class="nav-icon fas fa-copy"></i>#}
+{#                <p>#}
+{#                  Management#}
+{#                  <i class="fas fa-angle-left right"></i>#}
+{#                </p>#}
+{#              </a>#}
+{#              <ul class="nav nav-treeview">#}
+{#                <li class="nav-item">#}
+{#                  <a href="{% url 'sessions' %}" class="nav-link">#}
+{#                    <i class="nav-icon fas fa-bars"></i>#}
+{#                    <p>#}
+{#                      Sessions#}
+{#                    </p>#}
+{#                  </a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                  <a href="{% url 'terms' %}" class="nav-link">#}
+{#                    <i class="nav-icon fas fa-bars"></i>#}
+{#                    <p>#}
+{#                      Terms#}
+{#                      <i class="right"></i>#}
+{#                    </p>#}
+{#                  </a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                  <a href="{% url 'subjects' %}" class="nav-link">#}
+{#                    <i class="nav-icon fas fa-bars"></i>#}
+{#                    <p>#}
+{#                      Subjects#}
+{#                    </p>#}
+{#                  </a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                  <a href="{% url 'classes' %}" class="nav-link">#}
+{#                    <i class="nav-icon fas fa-bars"></i>#}
+{#                    <p>#}
+{#                      Classes#}
+{#                    </p>#}
+{#                  </a>#}
+{#                </li>#}
+{#              </ul>#}
+{#            </li>#}
             <!-- <li class="nav-item">
               <a href="{% url 'configs' %}" class="nav-link">
                 <i class="nav-icon fas fa-cog"></i>
